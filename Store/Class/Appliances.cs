@@ -13,7 +13,7 @@ namespace Store.Class
         public DateTime productionDate { get; set; }
 
         public Double weight { get; set; }
-        int popust { get; set; }
+        int sale { get; set; }
         public Appliances(String name, String brand, Double price, String model, DateTime productionDate, Double weight) {
             this.name = name;
             this.brand = brand;
@@ -22,19 +22,19 @@ namespace Store.Class
             this.model = model;
             this.productionDate = productionDate;
             this.weight = weight;
-            this.popust = Discount();
+            this.sale = Discount();
         }
 
         public int Discount()
         {
             if ((DateTime.Now.DayOfWeek!=DayOfWeek.Sunday || DateTime.Now.DayOfWeek!=DayOfWeek.Saturday) && price<999)
             {
-                popust = 0;
+                sale = 0;
             }
-            else popust = 5;
+            else sale = 5;
 
 
-            return popust;
+            return sale;
         }
 
     }

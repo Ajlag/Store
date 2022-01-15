@@ -19,27 +19,27 @@ namespace Store.Class
 
         public String color { get; set; }
 
-      public  int popust { get; set; }
+      public  int sale { get; set; }
         public Clothes( String name, String brand, Double price, Size size, String color) {
             this.name = name;
             this.brand = brand;
             this.price = price;
             this.size = size;
             this.color = color;
-            this.popust = Discount();
+            this.sale = Discount();
         }
 
         public int Discount()
         {
             if (DateTime.Now.DayOfWeek!=DayOfWeek.Saturday && DateTime.Now.DayOfWeek!=DayOfWeek.Sunday)
             {
-                popust = 10;
+                sale = 10;
             }
           
-            else popust = 0;
+            else sale = 0;
 
 
-            return popust;
+            return sale;
         }
     }
 }

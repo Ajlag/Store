@@ -12,30 +12,30 @@ namespace Store.Class
 
         public DateTime expirationDate;
 
-        public int popust { get; set; }
+        public int sale { get; set; }
         public FoodAndBeverages(String name, String brand, Double price, DateTime expirationDate) {
             this.name = name;
             this.brand = brand;
             this.price = price;
             this.expirationDate = expirationDate;
-            this.popust = Discount();
+            this.sale = Discount();
         }
 
         public int Discount()
         {
-            if (expirationDate.Day == DateTime.Now.Day)
+            if ( DateTime.Now == expirationDate)
             {
-                popust = 50;
+                sale = 50;
             }
             else if (expirationDate.Day == (DateTime.Now.Day + 5))
             {
-                popust = 10;
+                sale = 10;
             }
 
-            else popust = 0;
+            else sale = 0;
 
 
-            return popust;
+            return sale;
         }
     }
 
